@@ -13,3 +13,6 @@
 go.work
 
 .env
+
+*.sqlite
+*.db
