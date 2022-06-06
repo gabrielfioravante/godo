@@ -1,0 +1,295 @@
+_type: export
+__export_format: 4
+__export_date: 2022-06-06T07:38:01.255Z
+__export_source: insomnia.desktop.app:v2022.3.0
+resources:
+  - _id: req_c9400d54024e450b91aaeaa728975aa2
+    parentId: fld_240d5793049d40be8aa5775beb21a6be
+    modified: 1654501048266
+    created: 1654405769004
+    url: "{{ _.base_url }}/todo"
+    name: Create Todo
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Test",
+        	"description": "Test",
+        	"listID": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786833
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_240d5793049d40be8aa5775beb21a6be
+    parentId: wrk_a94bc1ac452c4331995d2ed10706364b
+    modified: 1654500216613
+    created: 1654418450095
+    name: Todo
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1654418450096
+    _type: request_group
+  - _id: wrk_a94bc1ac452c4331995d2ed10706364b
+    parentId: null
+    modified: 1654397786745
+    created: 1654397786745
+    name: New Document
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_1b9bae7c662d46b3a025df00e72b3259
+    parentId: fld_240d5793049d40be8aa5775beb21a6be
+    modified: 1654501047898
+    created: 1654418479075
+    url: "{{ _.base_url }}/todo/2"
+    name: Update Todo
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Gabriel"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786783
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8877f9486e9c4f38801a08282b4d08ce
+    parentId: fld_240d5793049d40be8aa5775beb21a6be
+    modified: 1654501005708
+    created: 1654489095221
+    url: "{{ _.base_url }}/todo/1"
+    name: Delete Todo
+    description: ""
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786733
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ed7c5fe74d6c4e0f94a9f2290e91e331
+    parentId: fld_61a20aac42cf4a54b4d6035a7824b2e8
+    modified: 1654501046450
+    created: 1654397786758
+    url: "{{ _.base_url }}/list"
+    name: Create List
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "List 1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786958
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_61a20aac42cf4a54b4d6035a7824b2e8
+    parentId: wrk_a94bc1ac452c4331995d2ed10706364b
+    modified: 1654500211834
+    created: 1654418155596
+    name: List
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1654418155596
+    _type: request_group
+  - _id: req_d95d13c8e1204e4ba1ea32a7286af468
+    parentId: fld_61a20aac42cf4a54b4d6035a7824b2e8
+    modified: 1654500894582
+    created: 1654412984251
+    url: "{{ _.base_url }}/list/1"
+    name: Get List
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786926.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fcbbc45f13684e20aabd515b0d939821
+    parentId: fld_61a20aac42cf4a54b4d6035a7824b2e8
+    modified: 1654500917866
+    created: 1654400488417
+    url: "{{ _.base_url }}/list"
+    name: Get Lists
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786920.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9ce544ef98a54c2c9188f43442fd11d5
+    parentId: fld_61a20aac42cf4a54b4d6035a7824b2e8
+    modified: 1654501037001
+    created: 1654418145671
+    url: "{{ _.base_url }}/list/2"
+    name: Update List
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "Gabriel"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786908
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_02400d3be2ec4f94bc0ffb75496f5ef3
+    parentId: fld_61a20aac42cf4a54b4d6035a7824b2e8
+    modified: 1654500976849
+    created: 1654418216658
+    url: "{{ _.base_url }}/list/2"
+    name: Delete List
+    description: ""
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fccdf6c65724a8784e513b4e59b6526
+    authentication: {}
+    metaSortKey: -1654397786820.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_3aa861666176f0f9d097d0d306d19e0a6b891757
+    parentId: wrk_a94bc1ac452c4331995d2ed10706364b
+    modified: 1654500406065
+    created: 1654397786754
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1654397786754
+    _type: environment
+  - _id: jar_3aa861666176f0f9d097d0d306d19e0a6b891757
+    parentId: wrk_a94bc1ac452c4331995d2ed10706364b
+    modified: 1654397786756
+    created: 1654397786756
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_72cd392c641846a4a155dced1cba4c25
+    parentId: wrk_a94bc1ac452c4331995d2ed10706364b
+    modified: 1654499940406
+    created: 1654397786752
+    fileName: Godo
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_1a11717f89f9433f8da3cd4dde72ac35
+    parentId: env_3aa861666176f0f9d097d0d306d19e0a6b891757
+    modified: 1654500880723
+    created: 1654500234359
+    name: Godo (local)
+    data:
+      base_url: http://localhost:8080
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: null
+    isPrivate: false
+    metaSortKey: 0
+    _type: environment
