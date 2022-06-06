@@ -62,7 +62,7 @@ func UpdateTodo(c *gin.Context) {
 	}
 
 	if DB.First(&todo, c.Param("id")).Error != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "List not found"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Todo not found"})
 		return
 	}
 
