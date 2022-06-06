@@ -10,17 +10,21 @@ import (
 func Setup(port int) {
 	r := gin.Default()
 
-	// List endpoints
-	r.POST("/list", controllers.CreateList)
-	r.GET("/list", controllers.GetLists)
-	r.GET("/list/:id", controllers.GetList)
-	r.DELETE("/list/:id", controllers.DeleteList)
-	r.PUT("/list/:id", controllers.UpdateList)
+	list := r.Group("/list")
+	{
+		list.POST("", controllers.CreateList)
+		list.GET("", controllers.GetLists)
+		list.GET("/:id", controllers.GetList)
+		list.DELETE("/:id", controllers.DeleteList)
+		list.PUT("/:id", controllers.UpdateList)
+	}
 
-	// Todo endpoints
-	r.POST("/todo", controllers.CreateTodo)
-	r.DELETE("/todo/:id", controllers.DeleteTodo)
-	r.PUT("/todo/:id", controllers.UpdateTodo)
+	todo := r.Group("/todo")
+	{
+		todo.POST("", controllers.CreateTodo)
+		todo.DELETE("/:id", controllers.DeleteTodo)
+		todo.PUT("/:id", controllers.UpdateTodo)
+	}
 
 	r.Run(":" + strconv.Itoa(port))
 }
