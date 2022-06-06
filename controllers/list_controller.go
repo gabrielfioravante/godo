@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"godo/db"
+	. "godo/db"
 	"godo/models"
 	"net/http"
 
@@ -21,7 +21,7 @@ func CreateList(c *gin.Context) {
 	}
 
 	list := models.List{Title: input.Title}
-	db.Instance.Create(&list)
+	DB.Create(&list)
 
 	c.JSON(http.StatusCreated, gin.H{"data": list})
 }
@@ -30,7 +30,7 @@ func GetLists(c *gin.Context) {
 	var list models.List
 	var lists []models.APIList
 
-	db.Instance.Model(&list).Find(&lists)
+	DB.Model(&list).Find(&lists)
 
 	c.JSON(http.StatusOK, gin.H{"data": lists})
 }
@@ -38,7 +38,7 @@ func GetLists(c *gin.Context) {
 func GetList(c *gin.Context) {
 	var list models.List
 
-	if db.Instance.Preload("Todos").First(&list, c.Param("id")).Error != nil {
+	if DB.Preload("Todos").First(&list, c.Param("id")).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "List not found"})
 		return
 	}
@@ -49,12 +49,12 @@ func GetList(c *gin.Context) {
 func DeleteList(c *gin.Context) {
 	var list models.List
 
-	if db.Instance.First(&list, c.Param("id")).Error != nil {
+	if DB.First(&list, c.Param("id")).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "List not found"})
 		return
 	}
 
-	db.Instance.Delete(&list)
+	DB.Delete(&list)
 
 	c.JSON(http.StatusOK, gin.H{})
 }
@@ -68,12 +68,12 @@ func UpdateList(c *gin.Context) {
 		return
 	}
 
-	if db.Instance.First(&list, c.Param("id")).Error != nil {
+	if DB.First(&list, c.Param("id")).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "List not found"})
 		return
 	}
 
-	db.Instance.Model(&list).Update("title", input.Title)
+	DB.Model(&list).Update("title", input.Title)
 
 	c.JSON(http.StatusOK, gin.H{})
 }

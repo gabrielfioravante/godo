@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"godo/db"
+	. "godo/db"
 	"godo/models"
 	"net/http"
 
@@ -23,13 +23,13 @@ func CreateTodo(c *gin.Context) {
 		return
 	}
 
-	if db.Instance.First(&list, input.ListID).Error != nil {
+	if DB.First(&list, input.ListID).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "List not found"})
 		return
 	}
 
 	todo := models.Todo{Title: input.Title, Description: input.Description}
-	db.Instance.Model(&list).Association("Todos").Append(&todo)
+	DB.Model(&list).Association("Todos").Append(&todo)
 
 	c.JSON(http.StatusCreated, gin.H{"data": todo})
 }
@@ -37,12 +37,12 @@ func CreateTodo(c *gin.Context) {
 func DeleteTodo(c *gin.Context) {
 	var todo models.List
 
-	if db.Instance.First(&todo, c.Param("id")).Error != nil {
+	if DB.First(&todo, c.Param("id")).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Todo not found"})
 		return
 	}
 
-	db.Instance.Delete(&todo)
+	DB.Delete(&todo)
 
 	c.JSON(http.StatusOK, gin.H{})
 }
@@ -61,7 +61,7 @@ func UpdateTodo(c *gin.Context) {
 		return
 	}
 
-	if db.Instance.First(&todo, c.Param("id")).Error != nil {
+	if DB.First(&todo, c.Param("id")).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "List not found"})
 		return
 	}
@@ -73,7 +73,7 @@ func UpdateTodo(c *gin.Context) {
 		todo.Description = *input.Description
 	}
 
-	db.Instance.Save(&todo)
+	DB.Save(&todo)
 
 	c.JSON(http.StatusOK, gin.H{})
 }

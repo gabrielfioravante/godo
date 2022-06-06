@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var Instance *gorm.DB
+var DB *gorm.DB
 
 func Create() {
 	db, err := gorm.Open(sqlite.Open("db.sqlite"), &gorm.Config{})
@@ -15,10 +15,10 @@ func Create() {
 		panic("failed to connect to database")
 	}
 
-	Instance = db
+	DB = db
 }
 
 func Migrate() {
-	Instance.AutoMigrate(&models.List{})
-	Instance.AutoMigrate(&models.Todo{})
+	DB.AutoMigrate(&models.List{})
+	DB.AutoMigrate(&models.Todo{})
 }
