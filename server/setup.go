@@ -19,7 +19,7 @@ func Setup(port int) {
 
 	// Todo endpoints
 	r.POST("/todo", controllers.CreateTodo)
-	r.DELETE("/todo/:id", controllers.CreateTodo)
+	r.DELETE("/todo/:id", controllers.DeleteTodo)
 	r.PUT("/todo/:id", controllers.UpdateTodo)
 
 	r.Run(":" + strconv.Itoa(port))

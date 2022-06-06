@@ -35,7 +35,7 @@ func CreateTodo(c *gin.Context) {
 }
 
 func DeleteTodo(c *gin.Context) {
-	var todo models.List
+	var todo models.Todo
 
 	if DB.First(&todo, c.Param("id")).Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Todo not found"})
