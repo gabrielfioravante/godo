@@ -2,24 +2,20 @@ package main
 
 import (
 	"flag"
-	"godo/db"
-	"godo/server"
-
-	"github.com/gin-gonic/gin"
+	"godo/options"
+	"godo/setup"
 )
 
-func main() {
-	db.Create()
+var flags options.Flags
 
-	migrate := flag.Bool("migrate", false, "should run migrations")
-	mode := flag.String("mode", "debug", "available modes: debug release test")
-	port := flag.Int("port", 8080, "server port")
+func init() {
+	flag.BoolVar(&flags.Migrate, "migrate", false, "should run migrations")
+	flag.StringVar(&flags.Mode, "mode", "debug", "available modes: debug release test")
+	flag.IntVar(&flags.Port, "port", 8080, "server port")
+}
+
+func main() {
 	flag.Parse()
 
-	if *migrate {
-		db.Migrate()
-	}
-
-	gin.SetMode(*mode)
-	server.Setup(*port)
+    setup.Begin(&flags)
 }

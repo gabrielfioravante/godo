@@ -7,7 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Setup(port int) {
+func Setup(mode string, port int) {
+	gin.SetMode(mode)
 	r := gin.Default()
 
 	list := r.Group("/list")
