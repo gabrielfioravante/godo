@@ -17,5 +17,5 @@ func init() {
 func main() {
 	flag.Parse()
 
-    setup.Begin(&flags)
+	setup.Begin(&flags)
 }

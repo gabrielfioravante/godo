@@ -9,7 +9,7 @@ import (
 func Begin(opts *options.Flags) {
 	db.Create()
 
-	if  opts.Migrate {
+	if opts.Migrate {
 		db.Migrate()
 	}
 
