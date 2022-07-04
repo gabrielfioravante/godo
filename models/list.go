@@ -8,7 +8,11 @@ type List struct {
 	Todos []Todo `json:"todos"`
 }
 
-type APIList struct {
+type ListAPIGet struct {
 	gorm.Model
 	Title string `json:"title"`
+}
+
+type ListAPIPost struct {
+	Title string `json:"title" binding:"required,min=2,max=50"`
 }

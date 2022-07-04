@@ -8,12 +8,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type list struct {
-	Title string `json:"title" binding:"required,min=2,max=50"`
-}
-
 func CreateList(c *gin.Context) {
-	var input list
+	var input models.ListAPIPost
 
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -28,7 +24,7 @@ func CreateList(c *gin.Context) {
 
 func GetLists(c *gin.Context) {
 	var list models.List
-	var lists []models.APIList
+	var lists []models.ListAPIGet
 
 	DB.Model(&list).Find(&lists)
 
@@ -60,7 +56,7 @@ func DeleteList(c *gin.Context) {
 }
 
 func UpdateList(c *gin.Context) {
-	var input list
+	var input models.ListAPIPost
 	var list models.List
 
 	if err := c.ShouldBindJSON(&input); err != nil {
