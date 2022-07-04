@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-06T07:38:01.255Z
+__export_date: 2022-07-03T22:41:27.325Z
 __export_source: insomnia.desktop.app:v2022.3.0
 resources:
   - _id: req_c9400d54024e450b91aaeaa728975aa2
     parentId: fld_240d5793049d40be8aa5775beb21a6be
-    modified: 1654501048266
+    modified: 1656888052424
     created: 1654405769004
     url: "{{ _.base_url }}/todo"
     name: Create Todo
@@ -54,9 +54,9 @@ resources:
     _type: workspace
   - _id: req_1b9bae7c662d46b3a025df00e72b3259
     parentId: fld_240d5793049d40be8aa5775beb21a6be
-    modified: 1654501047898
+    modified: 1656888055331
     created: 1654418479075
-    url: "{{ _.base_url }}/todo/2"
+    url: "{{ _.base_url }}/todo/1"
     name: Update Todo
     description: ""
     method: PUT
@@ -64,7 +64,8 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"title": "Gabriel"
+        	"title": "Gabriel",
+        	"done": true
         }
     parameters: []
     headers:
@@ -109,7 +110,7 @@ resources:
     _type: request
   - _id: req_ed7c5fe74d6c4e0f94a9f2290e91e331
     parentId: fld_61a20aac42cf4a54b4d6035a7824b2e8
-    modified: 1654501046450
+    modified: 1656887950782
     created: 1654397786758
     url: "{{ _.base_url }}/list"
     name: Create List
